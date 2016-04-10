@@ -12,15 +12,13 @@ public class Dz2_2 {
                     System.out.println("Вы ввели не число!\n");
                     continue mar;
                 }
-                else
-                {
+                else {
                     v = sc.nextInt();
                     if (v > 99 || v < 0) {
-                        System.out.println("Вы ввели неправильное значение!\n");
+                        System.out.println("Вы ввели недопустимое значение!\n");
                         continue mar;
                     }
-                    else
-                    {
+                    else {
                         int des = v / 10;
                         switch (v) {
                             case 0: {

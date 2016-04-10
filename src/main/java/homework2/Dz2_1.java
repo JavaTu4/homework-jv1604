@@ -16,8 +16,7 @@ public class Dz2_1 {
                     System.out.println("Вы ввели недопустимое значение");
                     continue lab1;
                 }
-                else
-                {
+                else {
                     switch (vibor) {
                         case 1: {
                             System.out.println("Вы выбрали расчёт площади поверхности тороида\nВведите внешний и внутренний радиусы тороида");
@@ -27,7 +26,7 @@ public class Dz2_1 {
                             ploshad = 4 * (PI * PI) * (r11 * r22);
                             System.out.print("Площадь поверхности тороида с внешним радиусом: " + r11 + " и внутренним радиусом " + r22 + " = ");
                             System.out.printf("%.2f %s", ploshad, "cm2");
-                        }break lab1;
+                        }break;
                         case 2: {
                             System.out.println("Вы выбрали расчёт обьёма тороида\nВведите внешний и внутренний радиусы тороида");
                             double r123 = sc.nextDouble();
@@ -36,8 +35,8 @@ public class Dz2_1 {
                             obem = 2 * (PI * PI) * r123 * (r223 * r223);
                             System.out.print("Обьём тороида с внешним радиусом: " + r123 + " и внутренним радиусом " + r223 + " = ");
                             System.out.printf("%.2f %s", obem, "cm3");
-                        }break lab1;
-                    }
+                        }break;
+                    }break lab1;
                 }
             }
             else {
