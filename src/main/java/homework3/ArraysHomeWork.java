@@ -7,9 +7,9 @@ public class ArraysHomeWork {
     public static void main(String[] args) throws Exception {
         int option;
         do {
-            System.out.println("Введите соответствующее значение:");
             System.out.println("\'1\' Сдвиговые операции с одномерными массивами");
             System.out.println("\'2\' Сдвиговые операции с двумерными массивами");
+            System.out.println("Введите соответствующее значение:");
             System.out.println("\'3\' Транспонирование матрицы");
             System.out.println("Сделайте ваш выбор :");
             option = M.readInt();
