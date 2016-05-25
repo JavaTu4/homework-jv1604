@@ -113,6 +113,7 @@ public class App {
             }
         }while (choice < 9 && choice >= Abiturient.abiturients.length);
         abiturients = new Abiturient[choice];
+        Abiturient[] abiturientsOriginalCopy = new Abiturient[Abiturient.abiturients.length - abiturients.length];
         for (int barier = Abiturient.abiturients.length - 1;barier >= 0; barier--){
             for (int index = 0;index < barier;index++){
                 if (Abiturient.abiturients[index].getSumOfEv() > Abiturient.abiturients[index + 1].getSumOfEv()){
@@ -125,6 +126,14 @@ public class App {
         for (int i = 0;i < abiturients.length;i++){
             abiturients[i] = Abiturient.abiturients[(Abiturient.abiturients.length - 1) - i];
             System.out.println(abiturients[i]);
+        }
+        System.arraycopy(Abiturient.abiturients,0,abiturientsOriginalCopy,0,(Abiturient.abiturients.length - abiturients.length) - 1);
+        System.out.println();
+        System.out.println("Абитуриенты имеющие полупроходной бал "+abiturients[abiturients.length - 1].getSumOfEv()+"\n");
+        for(Abiturient a:Abiturient.abiturients){
+            if(a.getSumOfEv() == abiturients[abiturients.length - 1].getSumOfEv()){
+                System.out.println(a);
+            }
         }
 
     }
