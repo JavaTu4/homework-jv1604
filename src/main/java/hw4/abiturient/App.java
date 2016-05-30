@@ -23,7 +23,6 @@ public class App {
         return choice;
     }
 
-
     static {
         sc = new Scanner(System.in);
         int size;
