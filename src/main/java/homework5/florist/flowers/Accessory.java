@@ -3,7 +3,7 @@ package homework5.florist.flowers;
 /**
  * Created by root.
  */
-public class Accesory {
+public class Accessory {
     private String type;
     private int price;
 
@@ -25,10 +25,10 @@ public class Accesory {
         return types;
     }
     public static void setTypes(String[] types) {
-        Accesory.types = types;
+        Accessory.types = types;
     }
 
-    public Accesory(String type, int price) {
+    public Accessory(String type, int price) {
         this.type = type;
         this.price = price;
     }

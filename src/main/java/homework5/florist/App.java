@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class App {
     static Scanner sc;
     static Flower[] flowers;
-    static Accesory[] accesories;
+    static Accessory[] accessories;
     static Object[] bouquet;
 
     public static int readConsoleInt(String message){
@@ -42,8 +42,8 @@ public class App {
             bouquet[j] = flowers[j];
         }
         int a = 0;
-        for (int k = bouquet.length - accesories.length;k < bouquet.length;k++){
-            bouquet[k] = accesories[a];
+        for (int k = bouquet.length - accessories.length;k < bouquet.length;k++){
+            bouquet[k] = accessories[a];
             a++;
         }
         printBouquet();
@@ -59,7 +59,7 @@ public class App {
             }
         }while (from < 10 || from >= 30);
         do {
-            to = readConsoleInt("\nВведите конец диапазона в см. (максимум 10)\n");
+            to = readConsoleInt("\nВведите конец диапазона в см. (максимум 30)\n");
             if (to <= from || to > 30){
                 System.out.println("неверное значение. \n"+
                         "повторите ввод данных");
@@ -122,8 +122,8 @@ public class App {
     }
     static String printMenuOfAddAccesory(){
         String menu = null;
-        for (int i = 0;i < Accesory.getTypes().length;i++){
-            menu += (i + 1) + " Добавить к букету "+Accesory.getTypes()[i]+"\n";
+        for (int i = 0;i < Accessory.getTypes().length;i++){
+            menu += (i + 1) + " Добавить к букету "+Accessory.getTypes()[i]+"\n";
         }
         menu = menu.substring(4);
         return "\n"+menu;
@@ -150,8 +150,8 @@ public class App {
 
     static Object[] randomBouquet(){
         flowers = new Flower[flowersSize()];
-        accesories = new Accesory[accesoriesSize()];
-        Object[] bouquet = new Object[flowers.length + accesories.length];
+        accessories = new Accessory[accesoriesSize()];
+        Object[] bouquet = new Object[flowers.length + accessories.length];
         int choice = readConsoleInt("\nСделайте выбор\n"+printMenuOfRandomAddFlower());
         switch (choice){
             case 1:{
@@ -171,15 +171,15 @@ public class App {
                 flowers = switchManuallyAddFlowers(choiceType);
             }break;
         }
-        for (int i = 0;i < accesories.length;i++){
-            accesories[i] = switchManuallyAddAccesory(random(1,4));
+        for (int i = 0;i < accessories.length;i++){
+            accessories[i] = switchManuallyAddAccesory(random(1,4));
         }
         for (int j = 0;j < flowers.length;j++){
             bouquet[j] = flowers[j];
         }
         int a = 0;
-        for (int k = bouquet.length - accesories.length;k < bouquet.length;k++){
-            bouquet[k] = accesories[a];
+        for (int k = bouquet.length - accessories.length;k < bouquet.length;k++){
+            bouquet[k] = accessories[a];
             a++;
         }
         return bouquet;
@@ -187,34 +187,34 @@ public class App {
     }
     static Object[] manuallyBouquet(){
         flowers = addFlowers();
-        accesories = addAccesories();
-        Object[] bouquet = new Object[flowers.length + accesories.length];
+        accessories = addAccesories();
+        Object[] bouquet = new Object[flowers.length + accessories.length];
         for (int j = 0;j < flowers.length;j++){
             bouquet[j] = flowers[j];
         }
         int a = 0;
-        for (int k = bouquet.length - accesories.length;k < bouquet.length;k++){
-            bouquet[k] = accesories[a];
+        for (int k = bouquet.length - accessories.length;k < bouquet.length;k++){
+            bouquet[k] = accessories[a];
             a++;
         }
         return bouquet;
     }
 
-    static Accesory switchManuallyAddAccesory(int choice){
-        Accesory accesory = null;
+    static Accessory switchManuallyAddAccesory(int choice){
+        Accessory accesory = null;
         if (choice > 0 && choice < 5) {
                 switch (choice) {
                     case 1: {
-                        accesory = new Accesory(Accesory.getTypes()[choice - 1],random(75, 150));
+                        accesory = new Accessory(Accessory.getTypes()[choice - 1],random(75, 150));
                     }break;
                     case 2: {
-                        accesory = new Accesory(Accesory.getTypes()[choice - 1],random(5, 15));
+                        accesory = new Accessory(Accessory.getTypes()[choice - 1],random(5, 15));
                     }break;
                     case 3: {
-                        accesory = new Accesory(Accesory.getTypes()[choice - 1],random(3, 10));
+                        accesory = new Accessory(Accessory.getTypes()[choice - 1],random(3, 10));
                     }break;
                     case 4: {
-                        accesory = new Accesory(Accesory.getTypes()[choice - 1],random(2,9));
+                        accesory = new Accessory(Accessory.getTypes()[choice - 1],random(2,9));
                     }break;
                 }
         }
@@ -284,10 +284,10 @@ public class App {
         return flow;
     }
 
-    static Accesory[] addAccesories(){
-        accesories = new Accesory[accesoriesSize()];
+    static Accessory[] addAccesories(){
+        accessories = new Accessory[accesoriesSize()];
         int choice;
-        for (int i = 0;i < accesories.length;i++){
+        for (int i = 0;i < accessories.length;i++){
             do {
                 choice = readConsoleInt("\nСделайте выбор\n"+printMenuOfAddAccesory());
                 if (choice < 1 || choice > 4){
@@ -295,10 +295,9 @@ public class App {
                             "повторите ввод данных");
                 }
             }while (choice < 1 || choice > 4);
-
-            accesories[i] = switchManuallyAddAccesory(choice);
+            accessories[i] = switchManuallyAddAccesory(choice);
         }
-        return accesories;
+        return accessories;
     }
     static Flower[] addFlowers(){
         flowers = new Flower[flowersSize()];
@@ -344,7 +343,7 @@ public class App {
         for (Flower f:flowers){
             price += f.getPrice();
         }
-        for (Accesory a:accesories){
+        for (Accessory a:accessories){
             price += a.getPrice();
         }
         return price;
